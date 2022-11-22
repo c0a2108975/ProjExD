@@ -46,7 +46,7 @@ def kaitou(abs_chars):
             else:
                 abs_chars.remove(ans)
 
-        print("全部正解です。")
+        print("全部正解です。 ")
         return True
             
 
