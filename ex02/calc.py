@@ -3,7 +3,15 @@ import tkinter.messagebox as tkm
 def button_click(event):
     btn = event.widget
     num = btn["text"]
-    tkm.showinfo("",f"{num}ボタンが押されました")
+    if num == "=":
+        pass
+        siki = entry.get()
+        res = eval(siki)
+        entry.delete(0,tk.END)
+        entry.insert(tk.END,res)
+    
+    else:
+        entry.insert(tk.END,num)
 
 root = tk.Tk()
 root.geometry("300x500")
