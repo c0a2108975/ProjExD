@@ -7,8 +7,9 @@ def button_click(event):
 
 root = tk.Tk()
 root.geometry("300x500")
-#entry = tk.Entry(root,justify="right",width = 10,fontsize= ("",40))
-#entry.grid(row=0,column=0,columnspan = )
+entry = tk.Entry(root,justify="right",width = 10,font= ("",40))
+entry.grid(row=0,column=0,columnspan=3)
+
 r,c = 0,0
 for num in range(9,-1,-1):
     button = tk.Button(root,text=f"{num}",width  = 4,height = 2,font=("",30))
