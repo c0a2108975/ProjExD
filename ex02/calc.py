@@ -61,7 +61,7 @@ for ope in operators:
         r +=1
         c = 1
 
-operators2 = ["*","/","c","^","税込"]
+operators2 = ["*","/","c","税込"]
 r,c = 1,3
 for ope2 in operators2:
     button = tk.Button(root,text=f"{ope2}",width = 4,height = 2,font=("",30))
