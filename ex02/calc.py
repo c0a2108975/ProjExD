@@ -30,8 +30,6 @@ def button_click(event):
         entry.delete(0,tk.END)
         entry.insert(tk.END,res**2)
 
-    
-    
     else:
         entry.insert(tk.END,num)
 
