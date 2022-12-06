@@ -4,7 +4,7 @@ import maze_maker
 
 #maze_maker.make_maze(15, 9)
 
-root = tk.Tk()
+
 
 def keikoku():
     tkm.showwarning("警告","やり直してください")
@@ -75,6 +75,7 @@ def main_proc():
    
 
 if __name__ =="__main__":
+    root = tk.Tk()
     meiro = maze_maker.make_maze(15, 9)
     mx,my = 1,1
     label = tk.Label(root,font=("Times New Roman",80))
