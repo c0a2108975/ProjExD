@@ -6,29 +6,33 @@ import maze_maker
 
 root = tk.Tk()
 
-"""def keikoku():
+def keikoku():
     tkm.showwarning("警告","やり直してください")
-
+    exit()
 def celebrate():
     tkm.showinfo("ゴール","おめでとう")
-
-
+    exit()
 def first():
     canvas.create_rectangle(100,200,200,100, fill="black")
 
 def end():
     canvas.create_rectangle(1300,700,1400,800, fill="red")
 
-def count_up():
-    global tmr
-    tmr = tmr-1
-    if tmr == 0:
+def count_down():
+    global tmr,jid,mx,my
+
+    if tmr == 1:
         keikoku()
-        
-    label["text"] = tmr
-    root.after(1000,count_up)
-    root.after(11000,lambda:root.destroy())
-    """
+    if mx == 13 and my == 7:
+        return 
+    
+    else:
+        tmr = tmr-1
+        label["text"] = tmr
+        root.after(1000,count_down)
+
+
+    
 def key_down(event):
     global key
     key = event.keysym
@@ -59,12 +63,14 @@ def main_proc():
         my = y
     
     canvas.coords("tori",cx,cy)
-    root.after(100,main_proc)
-    """if mx == 13 and my == 7:
+    if mx == 13 and my == 7:
+        canvas.delete("tori")
+        tori = tk.PhotoImage(file = "ex03/fig/fig/3.png")
+        canvas.create_image(1350,750,image=tori,tag="tori")
         celebrate()
 
     else:
-        root.after(100,main_proc)"""
+        root.after(100,main_proc)
     
    
 
@@ -73,12 +79,12 @@ if __name__ =="__main__":
     mx,my = 1,1
     label = tk.Label(root,font=("Times New Roman",80))
     label.pack()
-    tmr = 20
-    #root.after(1000,count_up)
+    tmr = 10
+    root.after(1000,count_down)
     canvas = tk.Canvas(root,width = 1500,height= 900,bg = "black")
     maze_maker.show_maze(canvas,meiro)
-    #first()
-    #end()
+    first()
+    end()
     tori = tk.PhotoImage(file = "ex03/fig/fig/0.png")
     cx,cy = 150,150
     canvas.create_image(cx,cy,image=tori,tag="tori")
