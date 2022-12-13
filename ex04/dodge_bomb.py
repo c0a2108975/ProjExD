@@ -5,10 +5,10 @@ import random
 def check_bound(obj_rct,scr_rct):
     yoko,tate = 1,1
     if obj_rct.left < scr_rct.left or scr_rct.right < obj_rct.right:
-        yoko = -1
+        yoko = -1*1.2
     
     if obj_rct.top < scr_rct.top or scr_rct.bottom < obj_rct.bottom:
-        tate = -1
+        tate = -1*1.2
     return yoko,tate
 
 
@@ -34,6 +34,11 @@ def main():
     bomb_rct.centerx = random.randint(0,1600)
     bomb_rct.centery = random.randint(0,900)
     scrn_sfc.blit(bomb_sfc,bomb_rct)
+
+
+    
+
+    
     vx,vy = 1,1
     
     while True:
@@ -41,7 +46,7 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 return
-            
+
         key_dct = pg.key.get_pressed()
         if key_dct[pg.K_UP]:
             tori_rct.centery -= 1
@@ -76,6 +81,20 @@ def main():
         vx *= yoko
         vy *= tate
         if tori_rct.colliderect(bomb_rct):
+            scrn_sfc = pg.display.set_mode((1600,900))
+            tori_sfc = pg.transform.rotozoom(tori_sfc,90,1.0)
+            scrn_sfc.blit(tori_sfc,tori_rct)
+            jikan = pg.time.get_ticks()
+            fonto = pg.font.Font(None,80)
+            txt = fonto.render(f"{int(jikan/1000)}s escape",True,(255,0,0))
+            scrn_sfc.blit(txt,(400,200))
+
+            fonto = pg.font.Font(None,80)
+            txt = fonto.render("THE END",True,(255,0,0))
+            scrn_sfc.blit(txt,(1000,200))
+            pg.display.update()
+            clock.tick(0.5)
+            
             return
         pg.display.update()
         clock.tick(1000)
