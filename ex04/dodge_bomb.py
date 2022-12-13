@@ -5,10 +5,10 @@ import random
 def check_bound(obj_rct,scr_rct):
     yoko,tate = 1,1
     if obj_rct.left < scr_rct.left or scr_rct.right < obj_rct.right:
-        yoko = -1*1.2
+        yoko = (-1)*1.2
     
     if obj_rct.top < scr_rct.top or scr_rct.bottom < obj_rct.bottom:
-        tate = -1*1.2
+        tate = (-1)*1.2
     return yoko,tate
 
 
