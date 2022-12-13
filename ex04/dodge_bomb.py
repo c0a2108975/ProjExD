@@ -20,8 +20,22 @@ def main():
             if event.type == pg.QUIT:
                 return
             
+        key_dct = pg.key.get_pressed()
+        if key_dct[pg.K_UP]:
+            tori_rct.centery -= 1
+        
+        if key_dct[pg.K_DOWN]:
+            tori_rct.centery += 1
+        
+        if key_dct[pg.K_LEFT]:
+            tori_rct.centerx -= 1
+
+        if key_dct[pg.K_RIGHT]:
+            tori_rct.centerx += 1
+
+        scrn_sfc.blit(tori_sfc,tori_rct)
         pg.display.update()
-        clock.tick(1)
+        clock.tick(1000)
 
 
 
