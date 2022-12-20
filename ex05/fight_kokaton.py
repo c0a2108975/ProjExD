@@ -116,7 +116,7 @@ def main():
                 fonto = pg.font.Font(None,80)
                 txt = fonto.render(f"{int(jikan/1000)}s escape",True,(255,0,0))
                 scr.sfc.blit(txt,(400,200))
-                
+
                 #着弾後のテキスト表示
                 fonto = pg.font.Font(None,80)
                 txt = fonto.render("THE END",True,(255,0,0))
@@ -136,10 +136,4 @@ if __name__ == "__main__":
     main()
     pg.quit()
     sys.exit()
-
-
-
-
-
-
 
